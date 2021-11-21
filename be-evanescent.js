@@ -17,6 +17,7 @@ define({
         propDefaults: {
             upgrade,
             ifWantsToBe,
+            forceVisible: true,
             primaryProp: 'whenDefined',
             virtualProps: ['whenDefined'],
         },
@@ -25,6 +26,9 @@ define({
                 ifAllOf: ['whenDefined']
             }
         }
+    },
+    complexPropDefaults: {
+        controller: BeEvanescentController
     }
 });
 register(ifWantsToBe, upgrade, tagName);

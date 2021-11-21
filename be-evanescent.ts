@@ -25,6 +25,7 @@ define<BeEvanescentProps & BeDecoratedProps<BeEvanescentProps, BeEvanescentActio
         propDefaults:{
             upgrade,
             ifWantsToBe,
+            forceVisible: true,
             primaryProp: 'whenDefined',
             virtualProps: ['whenDefined'],
             
@@ -34,6 +35,9 @@ define<BeEvanescentProps & BeDecoratedProps<BeEvanescentProps, BeEvanescentActio
                 ifAllOf:['whenDefined']
             }
         }
+    },
+    complexPropDefaults:{
+        controller: BeEvanescentController
     }
 })
 
