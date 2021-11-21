@@ -1,8 +1,17 @@
 {
   "name": "be-evanescent",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "be-evanescent is a web component decorator that removes the element it adorns from the DOM tree when the web component definitions it monitors for become registered.",
+  "main": "be-evanescent.js",
+  "module": "be-evanescent.js",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "custom-element",
+    "custom-elements",
+    "FOUC",
+    "transient-style"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node node_modules/xtal-test/serve.js",
@@ -17,6 +26,14 @@
     "@skypack/package-check": "0.2.2",
     "@custom-elements-manifest/analyzer": "0.5.7"
   },
+  "files":[
+    "*.*"
+  ],
+  "exports":{
+    ".": "./be-evanescent.js",
+    "./be-evanescent.js": "./be-evanescent.js"
+  },
+  "types": "types.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bahrus/be-evanescent.git"
