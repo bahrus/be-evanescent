@@ -4,9 +4,19 @@
 
 <a href="https://nodei.co/npm/be-evanescent/"><img src="https://nodei.co/npm/be-evanescent.png"></a>
 
-The biggest use case is providing initial css rules for light children, prior to being slotted.  This is important for avoiding FOUC.  But leaving the styles behind when no longer applicable, could have a lasting negative impact on other light children waiting for their web components to become registered, as well as non-shadowed content.
+The biggest use case is providing initial css rules for light children, prior to being slotted.  This is important for avoiding FOUC.  But leaving the styles behind when no longer applicable, could have a lasting negative impact on other light children waiting for their web components to become registered, as well as non-shadowed content.  Not to mention the performance impact of having non applicable css sitting in memory.
 
 be-evanescent is an attribute-based alternative to [transient-style](https://github.com/bahrus/transient-style).
+
+## Syntax
+
+```html
+<style be-evanescent='["be-evanescent"]'>
+    div{
+        color: red;
+    }
+</style>
+```
 
 ## Viewing Locally
 
