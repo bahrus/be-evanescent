@@ -18,6 +18,8 @@ be-evanescent is an attribute-based alternative to [transient-style](https://git
 </style>
 ```
 
+The style tag is removed from the DOM tree as soon as web component "be-evanescent" is registered.
+
 ## Viewing Locally
 
 1.  Install git.
