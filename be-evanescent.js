@@ -3,7 +3,7 @@ import { register } from 'be-hive/register.js';
 export class BeEvanescentController {
     onWhenDefined({ whenDefined, proxy }) {
         const promises = whenDefined.map(s => customElements.whenDefined(s));
-        Promise.all(promises).then((values) => {
+        Promise.all(promises).then(x => {
             proxy.remove();
         });
     }
@@ -17,7 +17,7 @@ define({
         propDefaults: {
             upgrade,
             ifWantsToBe,
-            forceVisible: true,
+            forceVisible: ['style'],
             primaryProp: 'whenDefined',
             virtualProps: ['whenDefined'],
         },

@@ -18,8 +18,8 @@
     "package-check": "package-check"
   },
   "dependencies": {
-    "be-decorated": "0.0.79",
-    "be-hive": "0.0.28"
+    "be-decorated": "0.0.81",
+    "be-hive": "0.0.31"
   },
   "devDependencies": {
     "xtal-test": "0.0.55",

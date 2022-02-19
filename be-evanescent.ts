@@ -4,8 +4,8 @@ import {register} from 'be-hive/register.js';
 
 export class BeEvanescentController implements BeEvanescentActions{
     onWhenDefined({whenDefined, proxy}: this){
-        const promises: Promise<CustomElementConstructor>[] = whenDefined.map(s => customElements.whenDefined(s));
-        Promise.all(promises).then((values) => {
+        const promises: Promise<any>[] = whenDefined.map(s => customElements.whenDefined(s));
+        Promise.all(promises).then(x => {
             proxy.remove();
         });
     }
@@ -25,7 +25,7 @@ define<BeEvanescentProps & BeDecoratedProps<BeEvanescentProps, BeEvanescentActio
         propDefaults:{
             upgrade,
             ifWantsToBe,
-            forceVisible: true,
+            forceVisible: ['style'],
             primaryProp: 'whenDefined',
             virtualProps: ['whenDefined'],
             
