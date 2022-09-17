@@ -13,8 +13,8 @@
     "transient-style"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node node_modules/xtal-test/serve.js",
+    "test": "playwright test",
+    "serve": "node node_modules/may-it-serve/serve.js",
     "package-check": "package-check"
   },
   "dependencies": {
@@ -22,9 +22,10 @@
     "be-hive": "0.0.65"
   },
   "devDependencies": {
-    "xtal-test": "0.0.55",
+    "may-it-serve": "0.0.2",
     "@skypack/package-check": "0.2.2",
-    "@custom-elements-manifest/analyzer": "0.5.7"
+    "@playwright/test": "1.25.2",
+    "@custom-elements-manifest/analyzer": "0.6.4"
   },
   "files": [
     "*.*"
