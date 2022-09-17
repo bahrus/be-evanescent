@@ -1,9 +1,9 @@
 import {define, BeDecoratedProps} from 'be-decorated/be-decorated.js';
-import {BeEvanescentActions, BeEvanescentProps, BeEvanescentVirtualProps} from './types';
+import {Actions, ProxyProps, VirtualProps, PP} from './types';
 import {register} from 'be-hive/register.js';
 
-export class BeEvanescentController implements BeEvanescentActions{
-    onWhenDefined({whenDefined, proxy}: this){
+export class BeEvanescent implements Actions{
+    onWhenDefined({whenDefined, proxy}: PP){
         const promises: Promise<any>[] = whenDefined.map(s => customElements.whenDefined(s));
         Promise.all(promises).then(x => {
             proxy.remove();
@@ -11,7 +11,6 @@ export class BeEvanescentController implements BeEvanescentActions{
     }
 }
 
-export interface BeEvanescentController extends BeEvanescentProps{}
 
 const ifWantsToBe = 'evanescent';
 
@@ -19,7 +18,7 @@ const upgrade = '*';
 
 const tagName = 'be-evanescent';
 
-define<BeEvanescentProps & BeDecoratedProps<BeEvanescentProps, BeEvanescentActions>, BeEvanescentActions>({
+define<ProxyProps & BeDecoratedProps<ProxyProps, Actions>, Actions>({
     config:{
         tagName,
         propDefaults:{
@@ -37,8 +36,8 @@ define<BeEvanescentProps & BeDecoratedProps<BeEvanescentProps, BeEvanescentActio
         }
     },
     complexPropDefaults:{
-        controller: BeEvanescentController
+        controller: BeEvanescent
     }
-})
+});
 
 register(ifWantsToBe, upgrade, tagName);
