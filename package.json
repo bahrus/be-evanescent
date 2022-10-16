@@ -1,6 +1,6 @@
 {
   "name": "be-evanescent",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "be-evanescent is a web component decorator that removes the element it adorns from the DOM tree when the web component definitions it monitors for become registered.",
   "main": "be-evanescent.js",
   "module": "be-evanescent.js",
