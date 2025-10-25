@@ -4,6 +4,7 @@
   "description": "be-evanescent is a web component decorator that removes the element it adorns from the DOM tree when the web component definitions it monitors for become registered.",
   "main": "be-evanescent.js",
   "module": "be-evanescent.js",
+  "type": "module",
   "keywords": [
     "web-components",
     "web-component",
@@ -14,18 +15,19 @@
   ],
   "scripts": {
     "test": "playwright test",
-    "serve": "node node_modules/may-it-serve/serve.js",
-    "package-check": "package-check"
+    "serve": "node ./node_modules/spa-ssi/serve.js",
+    "safari": "npx playwright wk http://localhost:8000",
+    "update": "ncu -u && npm install"
   },
   "dependencies": {
-    "be-decorated": "0.0.182",
-    "be-hive": "0.0.76"
+    "be-enhanced": "0.0.189",
+    "be-hive": "0.0.267",
+    "mount-observer": "0.0.105",
+    "trans-render": "0.0.960"
   },
   "devDependencies": {
-    "may-it-serve": "0.0.3",
-    "@skypack/package-check": "0.2.2",
-    "@playwright/test": "1.27.1",
-    "@custom-elements-manifest/analyzer": "0.6.4"
+    "@playwright/test": "1.56.1",
+    "spa-ssi": "0.0.23"
   },
   "files": [
     "*.*"
@@ -34,7 +36,7 @@
     ".": "./be-evanescent.js",
     "./be-evanescent.js": "./be-evanescent.js"
   },
-  "types": "types.d.ts",
+  "types": "./ts-refs/be-evanescent/types.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bahrus/be-evanescent.git"
