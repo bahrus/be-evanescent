@@ -1,5 +1,5 @@
 import {define, BeDecoratedProps} from 'be-decorated/DE.js';
-import {Actions, ProxyProps, VirtualProps, PP} from './types';
+import {Actions, ProxyProps, VirtualProps, PP} from '../types';
 import {register} from 'be-hive/register.js';
 
 export class BeEvanescent implements Actions{
