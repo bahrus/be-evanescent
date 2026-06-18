@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- #include virtual="/imports.html" -->
-    <be-hive>
-        <script type=emc src="be-evanescent/emc.json"></script>
-    </be-hive>
+
     <script type=module>
         import 'be-hive/be-hive.js';
     </script>
 </head>
 <body>
-    <style class='test' be-evanescent='["be-evanescent"]'>
+    <be-hive>
+        <script type=emc src="be-evanescent/emc.json"></script>
+    </be-hive>
+    <style class='test' be-evanescent='["my-component"]'>
         div{
             color: red;
         }
@@ -30,6 +31,9 @@
         setTimeout(() => {
            runScript();
        }, 4000);
+        setTimeout(() => {
+            customElements.define('my-component', class extends HTMLElement {} );
+        }, 1000);
    </script>
 </body>
 </html>
