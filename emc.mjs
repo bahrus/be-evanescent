@@ -24,6 +24,10 @@ export const emc = {
             properties: ['enhancedElement']
         },
         actions: {
+            inferFromParent: {
+                ifAllOf: ['enhancedElement'],
+                ifNoneOf: ['whenDefined']
+            },
             onWhenDefined: {
                 ifAllOf: ['whenDefined', 'enhancedElement']
             }

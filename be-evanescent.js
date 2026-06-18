@@ -47,6 +47,22 @@ class BeEvanescent {
      * @param {AP} self
      * @returns {import('./types/be-evanescent/types').ProPAP}
      */
+    async inferFromParent(self) {
+        const { enhancedElement } = self;
+        let parent = enhancedElement.parentElement;
+        while (parent) {
+            if (parent.tagName.includes('-')) {
+                return { whenDefined: [parent.tagName.toLowerCase()] };
+            }
+            parent = parent.parentElement;
+        }
+        return {};
+    }
+
+    /**
+     * @param {AP} self
+     * @returns {import('./types/be-evanescent/types').ProPAP}
+     */
     async onWhenDefined(self) {
         const { whenDefined, enhancedElement } = self;
         const promises = whenDefined.map(s => customElements.whenDefined(s));

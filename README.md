@@ -21,14 +21,46 @@ be-evanescent is an attribute-based alternative to [transient-style](https://git
 ## Syntax
 
 ```html
-<style be-evanescent='["be-evanescent"]'>
+<be-hive>
+    <script type=emc src="be-evanescent/emc.json"></script>
+</be-hive>
+<style be-evanescent='["my-component"]'>
     div{
         color: red;
     }
 </style>
+<div>hello</div>
+<script>
+    setTimeout(() => {
+        customElements.define('my-component', class extends HTMLElement {} );
+    }, 3000);
+</script>
 ```
 
 The style tag is removed from the DOM tree as soon as web component "be-evanescent" is registered.
+
+## Assuming the parent element name
+
+If no custom element names are specified, but the style element being enhanced is within a light child region of a custom element, assume that is the only one to wait for:
+
+```html
+<be-hive>
+    <script type=emc src="be-evanescent/emc.json"></script>
+</be-hive>
+<my-component>
+<style be-evanescent>
+    div{
+        color: red;
+    }
+</style>
+<div>hello</div>
+</my-component>
+<script>
+    setTimeout(() => {
+        customElements.define('my-component', class extends HTMLElement {} );
+    }, 3000);
+</script>
+```
 
 ## Viewing Locally
 
