@@ -1,27 +1,59 @@
 // @ts-check
-import { propInfo, rejected, resolved } from 'be-enhanced/cc.js';
-import { BE } from 'be-enhanced/BE.js';
-import {dispatchEvent as de} from 'trans-render/positractions/dispatchEvent.js';
-/** @import {BEConfig, IEnhancement, BEAllProps} from './ts-refs/be-enhanced/types.d.ts' */
-/** @import {Actions, PAP, AllProps, AP} from './ts-refs/be-evanescent/types' */;
+/** @import {Actions, PAP, AllProps, AP} from './types/be-evanescent/types' */;
+/** @import {RoundaboutOptions} from './types/roundabout/types' */;
+/** @import {ElementEnhancementGateway, SpawnContext} from './types/assign-gingerly/types' */;
+/** @import {EMC} from './types/mount-observer/types' */;
+/** @import {RAConfig} from './types/roundabout/types' */;
 
 /**
  * @implements {Actions}
- * 
  */
-class BeEvanescent extends BE {
+class BeEvanescent {
+
     /**
-     * @type {BEConfig<AP & BEAllProps, Actions & IEnhancement>}
+     * @this {AllProps & Actions}
+     * @param {Element & ElementEnhancementGateway} enhancedElement 
+     * @param {SpawnContext} ctx 
+     * @param {PAP} initVals 
      */
-    static config = {
-        propInfo: {
-            ...propInfo,
-        },
-        positractions: [resolved, rejected],
+    constructor(enhancedElement, ctx, initVals){
+        this.init(this, enhancedElement, ctx, initVals);
     }
 
-    de = de;
+    /**
+     * @param {AllProps} self 
+     * @param {Element & ElementEnhancementGateway} enhancedElement 
+     * @param {SpawnContext} ctx 
+     * @param {PAP} initVals 
+     */
+    async init(self, enhancedElement, ctx, initVals){
+        const {customData} = /** @type {EMC<any, AllProps, Element, RAConfig<AllProps, Actions>>} */ (ctx.emc);
+        /**
+         * @type {RoundaboutOptions}
+         */
+        const raOptions = {
+            ...customData,
+            vm: self,
+            initialPropVals: {
+                enhancedElement,
+                ...customData?.defaultPropVals,
+                ...initVals
+            }
+        };
+        (await import('roundabout-lib/roundabout.js')).roundabout(raOptions);
+    }
+
+    /**
+     * @param {AP} self
+     * @returns {import('./types/be-evanescent/types').ProPAP}
+     */
+    async onWhenDefined(self) {
+        const { whenDefined, enhancedElement } = self;
+        const promises = whenDefined.map(s => customElements.whenDefined(s));
+        await Promise.all(promises);
+        enhancedElement.remove();
+        return { resolved: true };
+    }
 }
 
-await BeEvanescent.bootUp();
 export { BeEvanescent }

@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>be-evanescent demo</title>
+    <!-- #include virtual="/imports.html" -->
+
+    <script type=module>
+        import 'be-hive/be-hive.js';
+    </script>
 </head>
 <body>
-    <style be-evanescent='["be-evanescent"]'>
+    <be-hive>
+        <script type=emc src="be-evanescent/emc.json"></script>
+    </be-hive>
+    <style be-evanescent='["my-component"]'>
         div{
             color: red;
         }
     </style>
     <div>hello</div>
-    <script type=importmap>
-        {
-            "imports": {
-                "trans-render/": "../node_modules/trans-render/",
-                "xtal-element/": "../node_modules/xtal-element/",
-                "be-decorated/": "../node_modules/be-decorated/",
-                "be-hive/":  "../node_modules/be-hive/"
-            }
-        }
-    </script>
-    <script type=module>
-        import '../be-evanescent.js';
+    <script>
+        setTimeout(() => {
+            customElements.define('my-component', class extends HTMLElement {} );
+        }, 3000);
     </script>
 </body>
 </html>

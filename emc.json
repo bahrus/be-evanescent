@@ -1,0 +1,31 @@
+{
+    "enhConfig": {
+        "enhKey": "BeEvanescent",
+        "spawn": "be-evanescent/be-evanescent.js",
+        "withAttrs": {
+            "base": "be-evanescent",
+            "_base": {
+                "instanceOf": "Array",
+                "mapsTo": "whenDefined"
+            }
+        }
+    },
+    "customData": {
+        "weakRef": {
+            "properties": [
+                "enhancedElement"
+            ]
+        },
+        "actions": {
+            "onWhenDefined": {
+                "ifAllOf": [
+                    "whenDefined",
+                    "enhancedElement"
+                ]
+            }
+        },
+        "compacts": {
+            "when_resolved_changes_dispatch": "resolved"
+        }
+    }
+}
