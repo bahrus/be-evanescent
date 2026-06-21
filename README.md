@@ -2,6 +2,10 @@
 
 *be-evanescent* is a web component decorator that removes the element it adorns from the DOM tree when the web component definitions it monitors for become registered. 
 
+## Alternatives
+
+This enhancement may have been eclipsed by [be-gone](https://github.com/bahrus/be-gone)
+
 <a href="https://nodei.co/npm/be-evanescent/"><img src="https://nodei.co/npm/be-evanescent.png"></a>
 
 Size of package, including custom element behavior framework (be-decorated):
